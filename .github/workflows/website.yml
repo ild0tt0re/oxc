@@ -18,14 +18,12 @@ jobs:
   website:
     name: Deploy Website
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: website
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install pnpm
+        working-directory: website
         run: corepack enable
 
       - name: Setup Node.js
@@ -36,9 +34,11 @@ jobs:
           cache: pnpm
 
       - name: Install Npm Dependencies
+        working-directory: website
         run: pnpm install
 
       - name: Build Website
+        working-directory: website
         run: pnpm run build
 
       - name: Deploy Website

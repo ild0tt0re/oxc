@@ -8,6 +8,7 @@ on:
       - website
     paths:
       - 'website/**'
+      - '.github/workflows/website.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

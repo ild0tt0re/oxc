@@ -17,12 +17,11 @@ jobs:
   website:
     name: Deploy Website
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./website
     steps:
-      - name: Checkout sources
+      - name: Checkout
         uses: actions/checkout@v3
+
+      - run: cd website
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
